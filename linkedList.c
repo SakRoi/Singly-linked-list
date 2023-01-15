@@ -129,8 +129,8 @@ void clearNodes(){
 int main(int argc, char **argv)
 {
     int option = -1;
-    int argument1 = 0;
-    int argument2 = 0;
+    int dataArgument = 0;
+    int positionArgument = 0;
     while (option != 5)
     {
         printMenu();
@@ -142,14 +142,14 @@ int main(int argc, char **argv)
                 case 1:
                     // add operation
                     printf("What data should I insert?:\n");
-                    scanf("%d", &argument1);
-                    node *new = addNode(argument1);
+                    scanf("%d", &dataArgument);
+                    node *new = addNode(dataArgument);
                     break;
                 case 2:
                     // remove operation
                     printf("What data should I remove?:\n");
-                    scanf("%d", &argument1);
-                    int success = removeNode(argument1);
+                    scanf("%d", &dataArgument);
+                    int success = removeNode(dataArgument);
                     if (!success)
                         printf("Element not found\n");
 
@@ -158,10 +158,10 @@ int main(int argc, char **argv)
                     // insert operation
                     // remove operation
                     printf("What data should I insert?:\n");
-                    scanf("%d", &argument1);
+                    scanf("%d", &dataArgument);
                     printf("What position?:\n");
-                    scanf("%d", &argument2);
-                    new = insertNode(argument1, argument2);
+                    scanf("%d", &positionArgument);
+                    new = insertNode(dataArgument, positionArgument);
                     if (new == NULL)
                         printf("Failed to insert into list\n");
                     break;
