@@ -148,7 +148,7 @@ int main(int argc, char **argv)
                     break;
                 case 2:
                     // remove operation
-                    printf("What position should I remove?:\n");
+                    printf("What position should I remove? Note that first element = 0 and so forth:\n");
                     scanf("%d", &positionArgument);
                     int success = removeNode(positionArgument);
                     if (!success)
