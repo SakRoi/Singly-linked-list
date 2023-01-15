@@ -38,18 +38,18 @@ node *addNode(int dataArgument)
 }
 
 //remove node
-int removeNode(int dataArgument){
+int removeNode(int positionArgument){
     //make both current and prev node point to the head node
     node *current = head;
     node *prev = head;
+    int currentPosition = 0;
     //while the current doesn't point to null
     while (current != NULL){
-        //this checks if we've found our right node
-        if (current->data == dataArgument){
-            if (current == head){
-                head = current->next;
-            }
-            else{
+        if (currentPosition == positionArgument){
+            //checks if wanted position is the head
+            if (positionArgument == 0){
+            head = current->next;
+            } else {
                 prev->next = current->next;
             }
             //freeing memory from the removed node
@@ -57,6 +57,7 @@ int removeNode(int dataArgument){
             current = NULL;
             return 1;
         }
+    currentPosition++;
     prev = current;
     current = current->next;
     }
@@ -147,9 +148,9 @@ int main(int argc, char **argv)
                     break;
                 case 2:
                     // remove operation
-                    printf("What data should I remove?:\n");
-                    scanf("%d", &dataArgument);
-                    int success = removeNode(dataArgument);
+                    printf("What position should I remove?:\n");
+                    scanf("%d", &positionArgument);
+                    int success = removeNode(positionArgument);
                     if (!success)
                         printf("Element not found\n");
 
